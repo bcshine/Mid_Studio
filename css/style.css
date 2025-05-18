@@ -1,0 +1,579 @@
+/* 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 기본 폰트 및 색상 설정 */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f8f9fa;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-text: #666;
+    --white: #ffffff;
+    --ivory: #fffff0;
+}
+
+body {
+    font-family: 'Pretendard', 'Montserrat', 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* 헤더 스타일 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover {
+    color: var(--accent-color);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-icon, .login-btn, .buy-btn {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.buy-btn {
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.buy-btn:hover {
+    background: #c0392b;
+}
+
+/* 햄버거 메뉴 */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--text-color);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* 히어로 섹션 */
+.hero {
+    margin-top: 80px;
+    position: relative;
+    height: 80vh;
+    background: var(--ivory);
+}
+
+.carousel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 1;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-prev { left: 1rem; }
+.carousel-next { right: 1rem; }
+
+/* 히어로 슬로건 크기 크게 */
+.slide-content h2 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.slide-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+@media (max-width: 600px) {
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+    .slide-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* 제품 섹션 */
+.products {
+    padding: 5rem 2rem;
+    background: var(--white);
+}
+
+.product-grid {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    padding: 1rem;
+    color: var(--primary-color);
+}
+
+.product-card p {
+    padding: 0 1rem;
+    color: var(--light-text);
+}
+
+.product-card ul {
+    padding: 1rem;
+    list-style-position: inside;
+}
+
+.package-btn {
+    display: block;
+    margin: 1rem;
+    padding: 0.8rem;
+    background: var(--accent-color);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.package-btn:hover {
+    background: #c0392b;
+}
+
+/* 포트폴리오 섹션 */
+.portfolio {
+    padding: 5rem 2rem;
+    background: var(--ivory);
+}
+
+.portfolio-grid {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.portfolio-item {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 6px 24px rgba(44,62,80,0.18);
+    transform: translateY(-8px) scale(1.03);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.portfolio-item h3 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.portfolio-item p {
+    color: var(--light-text);
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .portfolio-item img {
+        height: 160px;
+    }
+}
+
+/* 고객 후기 섹션 - 카드 그리드 스타일 */
+.testimonials {
+    padding: 5rem 2rem;
+    background: var(--ivory);
+}
+
+.testimonial-grid {
+    max-width: 1100px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    transition: box-shadow 0.2s;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 4px 20px rgba(44,62,80,0.12);
+}
+
+.testimonial-stars {
+    color: #ffb400;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.testimonial-text {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    white-space: pre-line;
+}
+
+.testimonial-author {
+    color: var(--light-text);
+    font-size: 1rem;
+    text-align: right;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    .testimonials {
+        padding: 2.5rem 0.5rem;
+    }
+}
+
+/* 소개 섹션 */
+.about {
+    padding: 5rem 2rem;
+    background: var(--ivory);
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+/* 챗봇 */
+.chatbot {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* 푸터 */
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .login-btn {
+        display: none;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* 접근성 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* 제품 가로 정렬 */
+.product-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .product-horizontal {
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 600px;
+    }
+}
+
+/* about section flex row */
+.about-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 900px) {
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .about-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* 제품 섹션 제목 중앙 정렬 */
+.products h2 {
+    text-align: center;
+}
+
+/* 포트폴리오 섹션 제목 및 설명 중앙 정렬 */
+.portfolio h2,
+.portfolio .section-desc {
+    text-align: center;
+} 

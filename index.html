@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간계 스튜디오</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 구글 웹폰트 Pretendard, Montserrat, Noto Sans KR 추가 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+    <!-- 헤더 섹션 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="image/logo.png" alt="중간계 스튜디오 로고">
+                <span>중간계 스튜디오</span>
+            </div>
+            <nav class="nav-menu">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="#hero">홈</a></li>
+                    <li><a href="#products">제품</a></li>
+                    <li><a href="#portfolio">포트폴리오</a></li>
+                    <li><a href="#testimonials">고객후기</a></li>
+                    <li><a href="#about">소개</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="login-btn">로그인</a>
+                <a href="https://smartstore.naver.com/" class="buy-btn" target="_blank" rel="noopener">구매하기</a> <!-- TODO: 네이버 스마트스토어 링크로 변경 -->
+            </div>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section id="hero" class="hero">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <!-- 슬라이드는 JS에서 동적으로 생성 -->
+            </div>
+            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- 제품 섹션 -->
+    <section id="products" class="products">
+        <h2>중간계 스튜디오 3가지 패키지</h2>
+        <div class="product-horizontal">
+            <div class="product-card">
+                <img src="image/pd1.jpg" alt="브랜드 네임, 전략 패키지">
+                <h3>브랜드 네임, 전략 패키지</h3>
+                <p>철학과 시장 전략을 담은 Brand Naming</p>
+                <ul>
+                    <li>3가지 Brand Name 제안</li>
+                    <li>타겟 고객 분석 및 포지셔닝방안</li>
+                    <li>브랜드 핵심 메시지 정리</li>
+                </ul>
+                <a href="#" class="package-btn" data-target="detail1">자세히 보기</a>
+                <div class="package-detail" id="detail1" style="display:none;">
+                    <ul>
+                        <li>브랜드 Naming 작명 (3개 대안 제시후, 최종 확정)</li>
+                        <li>기준 : 사업가 철학, 직관성, 감각성</li>
+                        <li>고객 페르소나 : 핵심고객 정의 (인구통계적, 사회심리적)</li>
+                        <li>브랜드 슬로건 / 약속 / 핵심 메시지 개발</li>
+                        <li>브랜드 스토리 600자 / 400자 / 200자</li>
+                        <li>가격 : 500만원 (중간계 수강자의 경우, 300만원)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="image/pd2.jpg" alt="마케팅 콘텐츠 패키지">
+                <h3>마케팅 콘텐츠 패키지</h3>
+                <p>팔리는 콘텐츠는 전략에서 나옵니다.</p>
+                <ul>
+                    <li>상세페이지 기획 및 디자인</li>
+                    <li>SNS 및 광고용 콘텐츠</li>
+                    <li>브랜드 스토리텔링 콘텐츠 구성</li>
+                </ul>
+                <a href="#" class="package-btn" data-target="detail2">자세히 보기</a>
+                <div class="package-detail" id="detail2" style="display:none;">
+                    <ul>
+                        <li>상세페이지 제작</li>
+                        <li>고객 정의</li>
+                        <li>약속 제안</li>
+                        <li>근거 구축 (사회적근거/기술적근거)</li>
+                        <li>제품 특징 (속성, 기능, 품질, 디자인, 서비스 등)</li>
+                        <li>구매 혜택 (이벤트 특징)</li>
+                        <li>가격 (편당, 80만원)</li>
+                        <li>쇼츠, 릴스 제작: 행동 요청형, 장점 기술형, 브랜드 홍보형, 이벤트 참여형</li>
+                        <li>가격 (30초 기준, 50만원, 60초 80만원)</li>
+                        <li>연간 구독 (1년기준): 상세페이지 1편, 쇼츠/릴스 2편, 서비스: 이벤트 기획안(요청시, 연간 12회), 가격: 월 100만원</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="image/pd3.jpg" alt="웹사이트 제작 패키지">
+                <h3>웹사이트 제작 패키지</h3>
+                <p>고객 구매행동을 촉진하는 웹사이트</p>
+                <ul>
+                    <li>기획부터 UI/UX, 카피라이팅까지</li>
+                    <li>PC/Mobile 반응형 디자인</li>
+                    <li>챗봇, 예약, 결제 등 기능 연동 가능</li>
+                </ul>
+                <a href="#" class="package-btn" data-target="detail3">자세히 보기</a>
+                <div class="package-detail" id="detail3" style="display:none;">
+                    <ul>
+                        <li>그리드 레이아웃으로 제품 카드 표시</li>
+                        <li>각 카드에 제품 이미지, 이름, 가격, 설명 포함</li>
+                        <li>호버 효과 (이미지 확대, 정보 표시)</li>
+                        <li>반응형 그리드</li>
+                        <li>패키지 비교표 및 용도 안내 제공</li>
+                        <li>가격: A 200만원, A+ 400만원, A++ 600만원</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 포트폴리오 섹션 -->
+    <section id="portfolio" class="portfolio">
+        <h2>우리가 만든 브랜드, 우리가 만든 결과</h2>
+        <p class="section-desc">실제 작업 사례를 통해 중간계 스튜디오의 노하우를 확인해보세요.</p>
+        <div class="portfolio-grid">
+            <!-- JS에서 동적으로 생성 -->
+        </div>
+    </section>
+
+    <!-- 고객 후기 섹션 -->
+    <section id="testimonials" class="testimonials">
+        <h2>고객이 먼저 이야기하는 변화</h2>
+        <div class="testimonial-grid">
+            <!-- 고객 후기는 JavaScript로 동적 생성 -->
+        </div>
+    </section>
+
+    <!-- 소개 섹션 -->
+    <section id="about" class="about">
+        <div class="about-flex">
+            <img src="image/man2.jpg" alt="대표 사진" class="about-photo">
+            <div class="about-content">
+                <h2>창업가와 창작자의 연결고리가 되어드립니다, '중간계스튜디오'</h2>
+                <p>'중간계스튜디오'는 아이디어와 실행 사이의 간극을 메우는 전략 파트너입니다.</p>
+                <p>브랜드는 단순한 디자인이 아닙니다. 그 안에는 방향성과 철학, 그리고 시장에서의 경쟁력이 담겨 있어야 합니다.</p>
+                <p>우리는 '창업가의 언어'를 이해하고, '크리에이터의 감성'을 존중합니다. 이 두 세계를 모두 아우를 수 있는 통역자이자 동반자로서, 당신의 브랜드가 현실적인 실행력과 시선을 사로잡는 매력을 동시에 갖출 수 있도록 돕습니다.</p>
+                <p>그래서 우리는 언제나 실용적이면서도 감각적인 결과물을 만들어냅니다.</p>
+                <p>창업가와 창작자의 연결고리가 되어드립니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 챗봇 -->
+    <div class="chatbot">
+        <a href="https://chatgpt.com/g/g-68294d4e7d848191b6c0740244f66c93-junggangyeseutyudio-caesbos" target="_blank" rel="noopener">
+            <button class="chatbot-toggle">
+                <i class="fas fa-comments"></i> 챗봇
+            </button>
+        </a>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>중간계 스튜디오</h3>
+                <p>주소: 서울특별시 강남구 테헤란로 123</p>
+                <p>전화: 02-123-4567</p>
+                <p>이메일: contact@midstudio.com</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 중간계 스튜디오. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
