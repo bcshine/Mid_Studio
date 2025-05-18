@@ -9,17 +9,17 @@ const chatbotToggle = document.querySelector('.chatbot-toggle');
 // 슬라이드 데이터
 const slides = [
     {
-        image: '/image/hero1.jpg',
+        image: 'image/hero1.jpg',
         title: '당신의 아이디어, 브랜드가 되다',
         description: '브랜드 이름에서부터 웹사이트까지, 사업성공을 함께 합니다'
     },
     {
-        image: '/image/hero2.jpg',
+        image: 'image/hero2.jpg',
         title: '전문가와 함께하는 브랜드 구축',
         description: '중간계 스튜디오는 브랜드 구축의 전 과정을 함께하는 성공 파트너입니다.'
     },
     {
-        image: '/image/hero3.jpg',
+        image: 'image/hero3.jpg',
         title: '창의적인 솔루션',
         description: '당신의 비즈니스를 위한 최적의 솔루션을 제시합니다.'
     }
@@ -28,47 +28,47 @@ const slides = [
 // 포트폴리오 데이터
 const portfolioItems = [
     {
-        image: '/image/portfolio1.jpg',
+        image: 'image/portfolio1.jpg',
         title: '모바일 결제 시스템',
         description: '스마트폰과 연동되는 최신 결제 솔루션 구축'
     },
     {
-        image: '/image/portfolio2.jpg',
+        image: 'image/portfolio2.jpg',
         title: '카페 결제 단말기',
         description: '카페 및 소상공인 맞춤형 카드 결제 시스템'
     },
     {
-        image: '/image/portfolio3.jpg',
+        image: 'image/portfolio3.jpg',
         title: '치과 의료장비 UI',
         description: '의료기기 인터페이스 및 사용자 경험 개선'
     },
     {
-        image: '/image/portfolio4.jpg',
+        image: 'image/portfolio4.jpg',
         title: '항공기 엔진 브랜딩',
         description: '항공 산업을 위한 기술적 브랜딩 사례'
     },
     {
-        image: '/image/portfolio5.jpg',
+        image: 'image/portfolio5.jpg',
         title: '드론 촬영 서비스',
         description: '최신 드론을 활용한 영상 및 사진 촬영 프로젝트'
     },
     {
-        image: '/image/portfolio6.jpg',
+        image: 'image/portfolio6.jpg',
         title: '레트로 타자기 캠페인',
         description: '감성적인 레트로 제품 홍보 및 브랜딩'
     },
     {
-        image: '/image/portfolio7.jpg',
+        image: 'image/portfolio7.jpg',
         title: '스마트 결제 UX',
         description: '사용자 중심의 결제 경험 설계'
     },
     {
-        image: '/image/portfolio8.jpg',
+        image: 'image/portfolio8.jpg',
         title: '카드 결제 시스템',
         description: '다양한 카드 결제 환경 구축 사례'
     },
     {
-        image: '/image/portfolio9.jpg',
+        image: 'image/portfolio9.jpg',
         title: '디지털 브랜딩',
         description: '디지털 환경에서의 브랜드 가치 극대화'
     }
