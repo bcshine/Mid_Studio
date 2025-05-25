@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간계 AI 스튜디오 - 히어로 파트</title>
+    <!-- 넥슨 고딕 웹폰트 불러오기 -->
+    <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NEXONLv1Gothic.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'NEXON Lv1 Gothic', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        /* 히어로 영역 전체(배경이미지 포함) */
+        .hero {
+            width: 100vw;
+            height: 600px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        /* 캐러셀 전체(이미지+화살표+텍스트) */
+        .carousel {
+            position: relative;
+            width: 100vw;
+            height: 100%;
+            overflow: hidden;
+        }
+        /* 각 슬라이드(이미지+텍스트) */
+        .carousel-slide {
+            width: 100vw;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.7s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        /* 슬라이드 배경이미지 */
+        .carousel-slide img {
+            width: 100vw;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        /* 슬라이드 중앙 텍스트+버튼 */
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* 글자 그림자 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide-content h1 {
+            font-size: 2.5rem;
+            margin: 0 0 12px 0;
+            font-weight: bold;
+        }
+        .slide-content h2 {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+        .slide-content p {
+            font-size: 1.1rem;
+            margin: 0 0 20px 0;
+        }
+        /* 예약하기 버튼 스타일 */
+        .reserve-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 36px;
+            font-size: 1.1rem;
+            font-family: 'NEXON Lv1 Gothic', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            background: #103c8f;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .reserve-btn:hover {
+            background: #2c2424;
+        }
+        /* 화살표 버튼(좌우) */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: none;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 2.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+            transition: background 0.2s;
+        }
+        .arrow.left { left: 16px; }
+        .arrow.right { right: 16px; }
+        .arrow:hover { background: rgba(255,255,255,0.12); }
+        /* 반응형: 모바일에서 높이, 폰트, 버튼 크기 줄이기 */
+        @media (max-width: 600px) {
+            .hero { height: 260px; }
+            .carousel, .carousel-slide, .carousel-slide img { height: 100%; }
+            .slide-content h1 { font-size: 1.2rem; }
+            .slide-content h2 { font-size: 0.95rem; }
+            .slide-content p { font-size: 0.8rem; }
+            .reserve-btn { font-size: 0.9rem; padding: 8px 18px; }
+            .arrow { width: 32px; height: 32px; font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- hero 파트 전체를 감싸는 div입니다. -->
+    <div class="hero">
+        <!-- 캐러셀(슬라이드 이미지) 영역입니다. -->
+        <div class="carousel">
+            <!-- 왼쪽 화살표 버튼입니다. -->
+            <button class="arrow left" aria-label="이전 슬라이드">&lt;</button>
+            <!-- 오른쪽 화살표 버튼입니다. -->
+            <button class="arrow right" aria-label="다음 슬라이드">&gt;</button>
+            <!-- 첫 번째 슬라이드입니다. images 폴더에 hero01.jpg 파일을 넣어주세요. -->
+            <div class="carousel-slide active">
+                <img src="images/hero01.jpg" alt="슬라이드1">
+                <div class="slide-content">
+                    <h1>중간계 AI 스튜디오</h1> <!-- 이 부분은 브랜드 이름입니다. -->
+                    <h2>당신의 아이디어, 브랜드가 되다</h2> <!-- 이 부분은 브랜드의 슬로건입니다. -->
+                    <p>브랜드 이름에서부터 웹사이트까지,<br>사업성공을 함께 합니다</p> <!-- 이 부분은 브랜드의 설명입니다. -->
+                    <button class="reserve-btn">예약하기</button> <!-- 예약하기 버튼입니다. -->
+                </div>
+            </div>
+            <!-- 두 번째 슬라이드입니다. images 폴더에 hero02.jpg 파일을 넣어주세요. -->
+            <div class="carousel-slide">
+                <img src="images/hero02.jpg" alt="슬라이드2">
+                <div class="slide-content">
+                    <h1>중간계 AI 스튜디오</h1>
+                    <h2>AI와 함께, 미래를 만나다</h2> <!-- 인공지능이 만든 두 번째 슬로건입니다. -->
+                    <p>쉽고 빠르게,<br>당신만의 브랜드를 완성하세요</p> <!-- 인공지능이 만든 두 번째 설명입니다. -->
+                    <button class="reserve-btn">예약하기</button>
+                </div>
+            </div>
+            <!-- 세 번째 슬라이드입니다. images 폴더에 hero03.jpg 파일을 넣어주세요. -->
+            <div class="carousel-slide">
+                <img src="images/hero03.jpg" alt="슬라이드3">
+                <div class="slide-content">
+                    <h1>중간계 AI 스튜디오</h1>
+                    <h2>상상력에 날개를 달다</h2> <!-- 인공지능이 만든 세 번째 슬로건입니다. -->
+                    <p>아이디어에서 실현까지,<br>AI가 함께합니다</p> <!-- 인공지능이 만든 세 번째 설명입니다. -->
+                    <button class="reserve-btn">예약하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 아래는 캐러셀을 자동으로 슬라이딩하고, 화살표로도 넘길 수 있게 하는 자바스크립트입니다. -->
+    <script>
+    // 모든 슬라이드와 화살표 버튼을 선택합니다.
+    const slides = document.querySelectorAll('.carousel-slide'); // 모든 슬라이드를 가져옵니다.
+    const leftBtn = document.querySelector('.arrow.left'); // 왼쪽 화살표 버튼입니다.
+    const rightBtn = document.querySelector('.arrow.right'); // 오른쪽 화살표 버튼입니다.
+    let current = 0; // 현재 보여지는 슬라이드 번호입니다.
+    let timer; // 자동 슬라이드 타이머입니다.
+
+    // 슬라이드를 보여주는 함수입니다.
+    function showSlide(idx) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === idx); // idx와 같은 슬라이드만 보이게 합니다.
+        });
+        current = idx;
+    }
+    // 다음 슬라이드로 이동하는 함수입니다.
+    function nextSlide() {
+        showSlide((current + 1) % slides.length);
+    }
+    // 이전 슬라이드로 이동하는 함수입니다.
+    function prevSlide() {
+        showSlide((current - 1 + slides.length) % slides.length);
+    }
+    // 오른쪽 버튼을 누르면 다음 슬라이드로 이동합니다.
+    rightBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+    });
+    // 왼쪽 버튼을 누르면 이전 슬라이드로 이동합니다.
+    leftBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+    });
+    // 자동으로 슬라이드가 넘어가게 하는 함수입니다.
+    function startTimer() {
+        timer = setInterval(nextSlide, 2500); // 2.5초마다 다음 슬라이드로 넘어갑니다.
+    }
+    // 사용자가 버튼을 누르면 타이머를 다시 시작합니다.
+    function resetTimer() {
+        clearInterval(timer);
+        startTimer();
+    }
+    // 페이지가 열리면 자동 슬라이드가 시작됩니다.
+    startTimer();
+    </script>
+</body>
+</html>

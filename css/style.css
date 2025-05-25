@@ -1,11 +1,12 @@
-/* 기본 스타일 리셋 */
+/* 이 파일은 웹사이트의 꾸미기(디자인)를 담당해요. */
+/* 기본 스타일 리셋: 모든 요소의 여백과 패딩을 0으로 만들어요. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 기본 폰트 및 색상 설정 */
+/* 색깔과 글꼴을 미리 정해두는 곳이에요. */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #f8f9fa;
@@ -22,7 +23,7 @@ body {
     color: var(--text-color);
 }
 
-/* 헤더 스타일 */
+/* 헤더(맨 위 메뉴) 부분을 예쁘게 꾸며줘요. */
 .header {
     position: fixed;
     top: 0;
@@ -52,6 +53,7 @@ body {
     height: 40px;
 }
 
+/* 메뉴(네비게이션) 부분을 꾸며줘요. */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -97,7 +99,7 @@ body {
     background: #c0392b;
 }
 
-/* 햄버거 메뉴 */
+/* 햄버거 메뉴(모바일에서 보이는 메뉴 버튼)를 꾸며줘요. */
 .hamburger {
     display: none;
     background: none;
@@ -115,7 +117,7 @@ body {
     transition: 0.3s;
 }
 
-/* 히어로 섹션 */
+/* 히어로(큰 사진과 글) 섹션을 꾸며줘요. */
 .hero {
     margin-top: 80px;
     position: relative;
@@ -179,7 +181,7 @@ body {
 .carousel-prev { left: 1rem; }
 .carousel-next { right: 1rem; }
 
-/* 히어로 슬로건 크기 크게 */
+/* 히어로 슬로건(큰 글씨) 크기를 크게 해줘요. */
 .slide-content h2 {
     font-size: 2.6rem;
     font-weight: bold;
@@ -198,7 +200,7 @@ body {
     }
 }
 
-/* 제품 섹션 */
+/* 제품(패키지) 섹션을 꾸며줘요. */
 .products {
     padding: 5rem 2rem;
     background: var(--white);
@@ -260,7 +262,7 @@ body {
     background: #c0392b;
 }
 
-/* 포트폴리오 섹션 */
+/* 포트폴리오(작업 결과물) 섹션을 꾸며줘요. */
 .portfolio {
     padding: 5rem 2rem;
     background: var(--ivory);
@@ -322,7 +324,7 @@ body {
     }
 }
 
-/* 고객 후기 섹션 - 카드 그리드 스타일 */
+/* 고객 후기(고객 리뷰) 섹션을 꾸며줘요. */
 .testimonials {
     padding: 5rem 2rem;
     background: var(--ivory);
@@ -382,7 +384,7 @@ body {
     }
 }
 
-/* 소개 섹션 */
+/* 소개(대표님과 설명) 섹션을 꾸며줘요. */
 .about {
     padding: 5rem 2rem;
     background: var(--ivory);
@@ -394,7 +396,7 @@ body {
     margin: 2rem auto;
 }
 
-/* 챗봇 */
+/* 챗봇 버튼을 오른쪽 아래에 예쁘게 보여줘요. */
 .chatbot {
     position: fixed;
     bottom: 2rem;
@@ -418,7 +420,7 @@ body {
     transform: scale(1.1);
 }
 
-/* 푸터 */
+/* 맨 아래 푸터(연락처, SNS 등) 부분을 꾸며줘요. */
 .footer {
     background: var(--primary-color);
     color: var(--white);
@@ -576,4 +578,15 @@ body {
 .portfolio h2,
 .portfolio .section-desc {
     text-align: center;
+}
+
+/* 화면 크기가 작아질 때(핸드폰, 태블릿) 레이아웃을 바꿔주는 미디어쿼리 부분이에요. */
+@media (max-width: 900px) {
+    // ... existing code ...
+}
+@media (max-width: 768px) {
+    // ... existing code ...
+}
+@media (max-width: 600px) {
+    // ... existing code ...
 } 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"> <!-- 글자가 깨지지 않게 해줘요 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 핸드폰, 태블릿에서도 잘 보여요 -->
+  <title>중간계AI 스튜디오</title> <!-- 웹사이트 이름이에요 -->
+  <!-- 넥슨 폰트 웹폰트 적용 (글씨체를 예쁘게 해줘요) -->
+  <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/NEXONLv1Gothic.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      margin: 0; /* 화면의 바깥 여백을 없애요 */
+      font-family: 'NEXON Lv1 Gothic OTF', sans-serif; /* 넥슨 글씨체를 써요 */
+      background: #fff; /* 배경색을 하얀색으로 해요 */
+    }
+    .header {
+      width: 100%; /* 가로로 화면을 다 써요 */
+      background: #fff; /* 헤더 배경을 하얗게 해요 */
+      display: flex; /* 안에 있는 것들을 가로로 나란히 놓아요 */
+      align-items: center; /* 세로로 가운데에 맞춰요 */
+      justify-content: center; /* 가운데 정렬해요 */
+      box-sizing: border-box; /* 테두리까지 크기로 계산해요 */
+      border-bottom: 1px solid #eee; /* 아래에 얇은 줄을 그려요 */
+      padding: 0 16px; /* 양쪽에 16px씩 여백을 줘요 */
+    }
+    .header-inner {
+      width: 100%; /* 가로로 다 써요 */
+      max-width: 1200px; /* 최대 넓이를 1200px로 해요 */
+      display: flex; /* 가로로 나란히 놓아요 */
+      align-items: center; /* 세로 가운데 정렬해요 */
+      justify-content: space-between; /* 양쪽 끝과 가운데로 나눠요 */
+      gap: 10px; /* 사이사이 간격을 10px로 해요 */
+      padding: 12px 0; /* 위아래로 12px 여백을 줘요 */
+    }
+    .header-left {
+      display: flex; /* 안에 있는 것들을 가로로 나란히 놓아요 */
+      align-items: center; /* 세로 가운데 정렬해요 */
+      gap: 10px; /* 사이사이 간격을 10px로 해요 */
+    }
+    .logo {
+      height: 40px; /* 로고의 높이를 40px로 해요 */
+      width: auto; /* 가로는 자동으로 맞춰요 */
+    }
+    .brand {
+      font-size: 1.3rem; /* 글씨 크기를 크게 해요 */
+      font-weight: bold; /* 글씨를 굵게 해요 */
+      color: #222; /* 글씨 색을 진한 회색으로 해요 */
+      letter-spacing: -1px; /* 글자 사이를 조금 좁게 해요 */
+    }
+    .nav {
+      display: flex; /* 메뉴들을 가로로 나란히 놓아요 */
+      align-items: center; /* 세로 가운데 정렬해요 */
+      gap: 10px; /* 메뉴 사이 간격을 10px로 해요 */
+      margin-left: 0; /* 왼쪽 여백 없앰 */
+    }
+    .nav a {
+      text-decoration: none; /* 밑줄을 없애요 */
+      color: #222; /* 글씨 색을 진한 회색으로 해요 */
+      font-size: 1rem; /* 글씨 크기를 보통으로 해요 */
+      padding: 6px 10px; /* 안쪽에 여백을 줘요 */
+      border-radius: 6px; /* 모서리를 둥글게 해요 */
+      transition: background 0.2s; /* 배경색이 부드럽게 바뀌어요 */
+    }
+    .nav a:hover {
+      background: #f5f5f5; /* 마우스를 올리면 배경이 연해져요 */
+    }
+    .login-btn {
+      background: #fff; /* 버튼 배경을 하얗게 해요 */
+      color: #222; /* 글씨 색을 진한 회색으로 해요 */
+      border: 1.5px solid #222; /* 테두리를 진한 회색으로 해요 */
+      border-radius: 30px; /* 버튼 모서리를 둥글게 해요 */
+      padding: 7px 24px; /* 안쪽에 여백을 넉넉하게 줘요 */
+      font-size: 1rem; /* 글씨 크기를 보통으로 해요 */
+      font-weight: 600; /* 글씨를 조금 굵게 해요 */
+      cursor: pointer; /* 마우스를 올리면 손가락 모양이 돼요 */
+      transition: background 0.2s, color 0.2s; /* 색이 부드럽게 바뀌어요 */
+    }
+    .login-btn:hover {
+      background: #222; /* 마우스를 올리면 배경이 진해져요 */
+      color: #fff; /* 글씨가 하얘져요 */
+    }
+    @media (max-width: 900px) {
+      /* 화면이 작아지면(태블릿, 핸드폰) 아래처럼 바뀌어요 */
+      .header-inner {
+        flex-direction: column; /* 세로로 쌓아요 */
+        align-items: stretch; /* 가로로 꽉 채워요 */
+        gap: 10px;
+      }
+      .header-left {
+        justify-content: center; /* 가운데 정렬해요 */
+        margin-bottom: 8px; /* 아래에 여백을 줘요 */
+      }
+      .nav {
+        justify-content: center; /* 메뉴도 가운데로 모아요 */
+        margin-left: 0;
+      }
+      .login-btn {
+        align-self: flex-end; /* 버튼을 오른쪽에 놓아요 */
+      }
+    }
+    @media (max-width: 480px) {
+      /* 화면이 아주 작아지면(작은 핸드폰) 아래처럼 바뀌어요 */
+      .brand {
+        font-size: 1rem; /* 글씨 크기를 더 작게 해요 */
+      }
+      .nav a {
+        font-size: 0.95rem; /* 메뉴 글씨도 조금 작게 해요 */
+        padding: 5px 7px; /* 여백도 조금 줄여요 */
+      }
+      .header-inner {
+        padding: 8px 0; /* 위아래 여백을 줄여요 */
+      }
+      .logo {
+        height: 32px; /* 로고도 더 작게 보여요 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 헤더(맨 위에 있는 메뉴 줄)를 만들어요 -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- 왼쪽: 로고와 브랜드 이름 -->
+      <div class="header-left">
+        <img src="images/logo1.png" alt="로고" class="logo" /> <!-- 왼쪽에 로고 그림을 넣어요 -->
+        <span class="brand">중간계AI 스튜디오</span> <!-- 로고 옆에 브랜드 이름을 써요 -->
+      </div>
+      <!-- 가운데: 메뉴들 -->
+      <nav class="nav">
+        <a href="#product">제품</a> <!-- 제품 메뉴 -->
+        <a href="#brand">브랜드</a> <!-- 브랜드 메뉴 -->
+        <a href="#review">고객후기</a> <!-- 고객후기 메뉴 -->
+        <a href="#philosophy">기업철학</a> <!-- 기업철학 메뉴 -->
+        <a href="#greeting">인사말</a> <!-- 인사말 메뉴 -->
+      </nav>
+      <!-- 오른쪽: 로그인 버튼 -->
+      <button class="login-btn" id="loginBtn">로그인</button>
+    </div>
+  </header>
+
+  <script>
+    // 아래는 자바스크립트 예시 코드에요! (로그인 버튼을 누르면 알림창이 떠요)
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      alert('로그인 버튼을 눌렀어요!'); // 알림창이 떠요
+    });
+  </script>
+</body>
+</html>

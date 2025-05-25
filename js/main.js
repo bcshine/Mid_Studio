@@ -1,4 +1,5 @@
-// DOM 요소 선택
+// 이 파일은 웹사이트에 움직임과 기능을 넣어주는 자바스크립트 파일이에요.
+// DOM 요소를 선택해요. (화면에서 필요한 부분을 가져와요)
 const hamburger = document.querySelector('.hamburger');
 const navList = document.querySelector('.nav-list');
 const carousel = document.querySelector('.carousel-inner');
@@ -6,7 +7,7 @@ const prevBtn = document.querySelector('.carousel-prev');
 const nextBtn = document.querySelector('.carousel-next');
 const chatbotToggle = document.querySelector('.chatbot-toggle');
 
-// 슬라이드 데이터
+// 슬라이드에 들어갈 사진과 글을 정리해 놓은 배열이에요.
 const slides = [
     {
         image: 'image/hero1.jpg',

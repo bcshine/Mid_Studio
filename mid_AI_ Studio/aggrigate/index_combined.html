@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>중간계 AI 스튜디오</title>
+  <!-- 넥슨 폰트 웹폰트 적용 -->
+  <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/NEXONLv1Gothic.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=NEXON+Lv1+Gothic+OTF:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* ===== header01.html styles ===== */
+    body {
+      margin: 0;
+      font-family: 'NEXON Lv1 Gothic', 'NEXON Lv1 Gothic OTF', 'NEXON Lv2 Gothic', sans-serif;
+      background: #fff;
+      padding: 0;
+    }
+    .header {
+      width: 100%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee;
+      padding: 0 16px;
+    }
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 0;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+    .brand {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #222;
+      letter-spacing: -1px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 0;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #222;
+      font-size: 1rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .nav a:hover {
+      background: #f5f5f5;
+    }
+    .login-btn {
+      background: #fff;
+      color: #222;
+      border: 1.5px solid #222;
+      border-radius: 30px;
+      padding: 7px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .login-btn:hover {
+      background: #222;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .header-inner { flex-direction: column; align-items: stretch; gap: 10px; }
+      .header-left { justify-content: center; margin-bottom: 8px; }
+      .nav { justify-content: center; margin-left: 0; }
+      .login-btn { align-self: flex-end; }
+    }
+    @media (max-width: 480px) {
+      .brand { font-size: 1rem; }
+      .nav a { font-size: 0.95rem; padding: 5px 7px; }
+      .header-inner { padding: 8px 0; }
+      .logo { height: 32px; }
+    }
+    /* ===== hero.html styles ===== */
+    .hero {
+      width: 100vw;
+      height: 600px;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .carousel {
+      position: relative;
+      width: 100vw;
+      height: 100%;
+      overflow: hidden;
+    }
+    .carousel-slide {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.7s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .carousel-slide img {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-content h1 { font-size: 2.5rem; margin: 0 0 12px 0; font-weight: bold; color: #fff; }
+    .slide-content h2 { font-size: 1.4rem; margin: 0 0 10px 0; font-weight: 500; color: #fff; }
+    .slide-content p { font-size: 1.1rem; margin: 0 0 20px 0; color: #fff; }
+    .reserve-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 36px;
+      font-size: 1.1rem;
+      font-family: 'NEXON Lv1 Gothic', sans-serif;
+      font-weight: bold;
+      color: #fff;
+      background: #103c8f;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .reserve-btn:hover { background: #2c2424; }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: none;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 2.2rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+      transition: background 0.2s;
+    }
+    .arrow.left { left: 16px; }
+    .arrow.right { right: 16px; }
+    .arrow:hover { background: rgba(255,255,255,0.12); }
+    @media (max-width: 600px) {
+      .hero { height: 260px; }
+      .carousel, .carousel-slide, .carousel-slide img { height: 100%; }
+      .slide-content h1 { font-size: 1.2rem; }
+      .slide-content h2 { font-size: 0.95rem; }
+      .slide-content p { font-size: 0.8rem; }
+      .reserve-btn { font-size: 0.9rem; padding: 8px 18px; }
+      .arrow { width: 32px; height: 32px; font-size: 1.3rem; }
+    }
+    /* ===== product.html styles ===== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: transparent;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      width: 70vw;
+      min-width: 320px;
+      margin-bottom: 32px;
+      box-sizing: border-box;
+    }
+    .shop-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      object-fit: cover;
+      aspect-ratio: 16/7;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 24px;
+      margin-bottom: 40px;
+    }
+    .product {
+      background: #f3f6fa;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 14px 20px 14px;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .product-image {
+      width: 100%;
+      max-width: 240px;
+      aspect-ratio: 1/0.7;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+    .product-desc {
+      width: 100%;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+    .buy-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+    .buy-btn a {
+      background: #fbfcfb;
+      color: #050505;
+      font-weight: normal;
+      padding: 10px 25px;
+      border-radius: 20%;
+      text-decoration: none;
+      font-size: 1.0rem;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(3,199,90,0.08);
+      border: 1px solid #000;
+    }
+    .buy-btn a:hover { background: #adb0ae; }
+    @media (max-width: 700px) {
+      .products-grid { grid-template-columns: 1fr; gap: 18px; }
+      .buy-btn { justify-content: center; }
+    }
+    /* ===== review.html styles ===== */
+    @font-face {
+      font-family: 'NEXON Lv2 Gothic';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON%20Lv2%20Gothic.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-box {
+      background: #f0f4fa;
+      border-radius: 16px;
+      padding: 20px 16px 16px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 180px;
+    }
+    .stars { color: #ffd600; font-size: 1.2em; margin-bottom: 8px; }
+    .review-text { color: #222; font-size: 1em; line-height: 1.6; margin-bottom: 12px; }
+    .review-author { color: #4a6fa1; font-size: 0.95em; font-weight: bold; margin-top: auto; }
+    @media (max-width: 900px) {
+      .container { width: 95vw; }
+      .review-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .container { width: 100vw; border-radius: 0; padding: 8px; }
+      .review-grid { grid-template-columns: 1fr; }
+    }
+    /* ===== brand_about.html styles ===== */
+    .section-content {
+      max-height: 200px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: relative;
+    }
+    .section-content.expanded { max-height: 2000px; }
+    .more-btn {
+      display: block;
+      margin: 12px 20px 20px auto;
+      background: #ffffff;
+      color: #000000;
+      border: 1.5px solid #000000;
+      border-radius: 10px;
+      padding: 8px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .more-btn:hover { background: #ddddde; }
+    h2 { margin-top: 0; color: #1a237e; font-size: 1.6rem; }
+    h3 { color: #1976d2; font-size: 1.1rem; margin-bottom: 1.7em; }
+    p { color: #222; line-height: 1.7; margin: 0.5em 0; }
+    .ceo-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 10%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      float: left;
+      margin-right: 20px;
+      height: 100%;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    #ceo-content p { margin-top: 0; margin-right: 60px; }
+    @media (max-width: 600px) {
+      .container { width: 96vw; padding: 16px 6vw; }
+      .ceo-img { width: 60px; height: 60px; }
+    }
+    .comment {
+      display: block;
+      font-size: 0.95em;
+      color: #888;
+      margin-bottom: 8px;
+      background: #f0f4ff;
+      border-left: 4px solid #1976d2;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    /* ===== footer.html styles ===== */
+    footer {
+      background:#f2f2f2;
+      padding:20px;
+      text-align:center;
+      font-family:sans-serif;
+    }
+    footer a {
+      margin:0 16px;
+      text-decoration:none;
+      font-size:2em;
+      color:#222;
+    }
+    /* Section backgrounds */
+    .section-bg-white { background: #fff; }
+    .section-bg-beige { background: #f8f5ef; }
+    .floating-chatbot-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+      background: #f8f5ef;
+      color: #222;
+      border: 2px solid #1976d2;
+      border-radius: 30px;
+      padding: 12px 22px 12px 18px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .floating-chatbot-btn:hover {
+      background: #1976d2;
+      color: #fff;
+      border-color: #103c8f;
+    }
+    .floating-chatbot-btn i {
+      font-size: 1.3em;
+    }
+    @media (max-width: 600px) {
+      .floating-chatbot-btn {
+        right: 10px;
+        bottom: 10px;
+        padding: 10px 14px 10px 12px;
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Floating Chatbot Button ===== -->
+  <a href="https://chatgpt.com/g/g-68294d4e7d848191b6c0740244f66c93-junggangyeseutyudio-caesbos" target="_blank" class="floating-chatbot-btn" aria-label="중간계스튜디오 챗봇">
+    <i class="fa-regular fa-comments"></i> 챗봇 문의
+  </a>
+  <!-- ===== Header ===== -->
+  <div class="section-bg-white">
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <img src="images/logo1.png" alt="로고" class="logo" />
+          <span class="brand">중간계AI 스튜디오</span>
+        </div>
+        <nav class="nav">
+          <a href="#product">제품</a>
+          <a href="#brand">브랜드</a>
+          <a href="#review">고객후기</a>
+          <a href="#philosophy">기업철학</a>
+          <a href="#greeting">인사말</a>
+        </nav>
+        <button class="login-btn" id="loginBtn">로그인</button>
+      </div>
+    </header>
+  </div>
+
+  <!-- ===== Hero Section ===== -->
+  <div class="section-bg-beige">
+    <div class="hero">
+      <div class="carousel">
+        <button class="arrow left" aria-label="이전 슬라이드">&lt;</button>
+        <button class="arrow right" aria-label="다음 슬라이드">&gt;</button>
+        <div class="carousel-slide active">
+          <img src="images/hero01.jpg" alt="슬라이드1">
+          <div class="slide-content">
+            <h1>중간계 AI 스튜디오</h1>
+            <h2>당신의 아이디어, 브랜드가 되다</h2>
+            <p>브랜드 이름에서부터 웹사이트까지,<br>사업성공을 함께 합니다</p>
+            <button class="reserve-btn">예약하기</button>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="images/hero02.jpg" alt="슬라이드2">
+          <div class="slide-content">
+            <h1>중간계 AI 스튜디오</h1>
+            <h2>AI와 함께, 미래를 만나다</h2>
+            <p>쉽고 빠르게,<br>당신만의 브랜드를 완성하세요</p>
+            <button class="reserve-btn">예약하기</button>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="images/hero03.jpg" alt="슬라이드3">
+          <div class="slide-content">
+            <h1>중간계 AI 스튜디오</h1>
+            <h2>상상력에 날개를 달다</h2>
+            <p>아이디어에서 실현까지,<br>AI가 함께합니다</p>
+            <button class="reserve-btn">예약하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Product Section ===== -->
+  <div class="section-bg-white">
+    <div class="container" id="product">
+      <img src="images/shop1.jpg" alt="매장 대표 이미지" class="shop-image">
+      <div class="products-grid">
+        <div class="product">
+          <img src="images/pd1.jpg" alt="상세페이지 이미지" class="product-image">
+          <div class="product-desc">
+            <strong>AI 상세페이지</strong><br>
+            AI가 자동으로 상품을 분석해, 검색에 잘 노출되고<br>
+            추천에 유리한 상세페이지를 쉽고 빠르게 만듭니다.<br>
+            고객, 약속, 근거, 제품 특징, 구매의 혜택을 전달합니다.
+          </div>
+        </div>
+        <div class="product">
+          <img src="images/pd2.jpg" alt="쇼츠 릴스 이미지" class="product-image">
+          <div class="product-desc">
+            <strong>AI 쇼츠/릴스</strong><br>
+            30초, 60초 영상도 AI가 척척!<br>
+            주목도 높은 쇼츠와 릴스를 빠르게 제작해<br>
+            SNS에서 인기 있는 영상을 쉽게 만듭니다.
+          </div>
+        </div>
+        <div class="product">
+          <img src="images/pd3.jpg" alt="홈페이지 이미지" class="product-image">
+          <div class="product-desc">
+            <strong>AI 홈페이지</strong><br>
+            AI가 검색에 잘 뜨는 홈페이지를 만들어주고,<br>
+            브랜드에 맞는 디자인도 자동으로 추천해줍니다.<br>
+            인공지능 최적화 홈페이지를 간결하게 만듭니다.
+          </div>
+        </div>
+        <div class="product">
+          <img src="images/pd4.jpg" alt="AI 챗봇 이미지" class="product-image">
+          <div class="product-desc">
+            <strong>AI 챗봇</strong><br>
+            AI가 고객 질문에 똑똑하게 답변!<br>
+            브랜드 맞춤형 챗봇으로<br>
+            최고의 고객 경험을 제공합니다.
+          </div>
+        </div>
+      </div>
+      <div class="buy-btn">
+        <a href="https://smartstore.naver.com/" target="_blank">구매하기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Review Section ===== -->
+  <div class="section-bg-beige">
+    <div class="container" id="review">
+      <div class="review-grid">
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">AI 스튜디오 덕분에 가게 홍보가 훨씬 쉬워졌어요!<br>홈페이지를 직접 만들지 못했는데, 이제는 손쉽게 관리할 수 있습니다.<br>고객 문의도 빠르게 받아서 매출이 늘었어요.</div>
+          <div class="review-author">- 김상훈 (카페 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">모바일에서도 잘 보여서 손님들이 예약을 쉽게 해요.<br>디자인이 깔끔해서 가게 이미지가 좋아졌습니다.<br>AI가 도와주니 시간도 절약돼서 정말 만족합니다.</div>
+          <div class="review-author">- 이지은 (미용실 원장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">처음엔 걱정했는데, 설명이 쉬워서 금방 익혔어요.<br>직원들도 쉽게 사용할 수 있어 모두가 편해졌습니다.<br>고객 관리가 체계적으로 바뀌었어요.</div>
+          <div class="review-author">- 박철민 (식당 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">홈페이지 덕분에 신규 고객이 많이 늘었어요.<br>AI가 자동으로 예약을 관리해줘서 실수가 줄었습니다.<br>고객 응대가 훨씬 편해졌어요.</div>
+          <div class="review-author">- 송미정 (네일샵 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">SNS 연동이 쉬워서 이벤트 홍보가 잘 돼요.<br>홈페이지에서 바로 주문도 받아서 매출이 올랐습니다.<br>AI가 추천해주는 기능도 유용해요.</div>
+          <div class="review-author">- 정우성 (분식집 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">고객 후기 관리가 쉬워져서 신뢰도가 높아졌어요.<br>AI가 자동으로 답변을 달아줘서 시간 절약이 됩니다.<br>홈페이지 덕분에 단골이 늘었어요.</div>
+          <div class="review-author">- 한지수 (꽃집 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">예약 시스템이 편리해서 손님들이 좋아해요.<br>모바일에서도 빠르게 확인할 수 있어 정말 편리합니다.<br>AI가 일정도 관리해줘서 실수가 없어요.</div>
+          <div class="review-author">- 오세훈 (사진관 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">홈페이지 덕분에 가게를 알리는 데 큰 도움이 됐어요.<br>AI가 홍보 문구도 추천해줘서 마케팅이 쉬워졌습니다.<br>고객 반응도 좋아요.</div>
+          <div class="review-author">- 김민아 (베이커리 사장님)</div>
+        </div>
+        <div class="review-box">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">AI 스튜디오로 홈페이지를 만들고 나서<br>고객 문의가 2배로 늘었습니다.<br>직접 관리할 수 있어 비용도 아끼고, 만족도가 높아요.</div>
+          <div class="review-author">- 최성호 (PC방 사장님)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Brand About Section ===== -->
+  <div class="section-bg-white">
+    <div class="container" id="brand">
+      <h2 style="text-align: center;">중간계 AI 스튜디오 소개(About)</h2>
+      <h3 style="text-align: center;">사업전략과 실행의 파트너, 원하는 것을 구현합니다.</h3>
+      <div style="text-align: center;">
+        <img src="images/pd2.jpg" alt="중간계 AI 스튜디오 소개 이미지" style="width: 100%; max-width: 600px; height: auto; margin: 20px 0; border-radius: 8px;">
+      </div>
+      <div class="section-content" id="about-content" style="text-align: center;">
+        <p>좋은 아이디어가 있다고 해서, 그 자체로 좋은 사업이 되는 것은 아닙니다.<br>
+        반짝이는 아이디어도 실행으로 이어지지 않으면 사라지고 맙니다.<br>
+        <b>중간계 AI 스튜디오는 그 간극을 메우는 전략 파트너입니다.</b></p>
+        <p>우리는 소상공인과 자영업자, 크리에이터와 창업가의 고민을 누구보다 잘 이해합니다.<br>
+        "무엇을 어떻게 보여줘야 할까?" "어떻게 하면 고객에게 잘 도달할 수 있을까?"<br>
+        이런 고민에 대해 감각과 전략을 결합해 실질적인 해답을 제시합니다.</p>
+        <p><b>브랜드 상세페이지, 쇼츠·릴스 영상, 홈페이지, 챗봇 등</b><br>
+        AI에 최적화된 콘텐츠를 기획·제작하여<br>
+        당신의 브랜드가 <b>더 많이 검색되고, 더 쉽게 기억되고, 더 효과적으로 매출로 연결될 수 있도록</b> 돕습니다.</p>
+        <p>우리는 단순한 제작자가 아닙니다.<br>
+        <b>창업가의 언어와 크리에이터의 감성</b>을 모두 이해하는<br>
+        '실행력 있는 감각', '감각 있는 실행력'을 가진 팀입니다.</p>
+        <p>아이디어를 현실로, 브랜드를 결과로.<br>
+        <b>중간계 AI 스튜디오</b>가 당신의 브랜드 여정에 함께하겠습니다.</p>
+      </div>
+      <div style="text-align: center;">
+        <button class="more-btn" onclick="toggleSection('about-content', this)">더 보기</button>
+      </div>
+    </div>
+    <div class="container">
+      <h2 style="text-align: center;">중간계, 브랜드 스토리</h2>
+      <h3 style="text-align: center;">사업전략을 넘어, 이제는 인공지능 최적화로</h3>
+      <div style="text-align: center;">
+        <img src="images/portfolio2.jpg" alt="중간계 AI 스튜디오 포트폴리오" style="width: 100%; max-width: 600px; height: auto; margin: 20px 0; border-radius: 8px;">
+      </div>
+      <div class="section-content" id="history-content" style="text-align: center;">
+        <p>중간계는 지난 20여 년간 <b>5,000여 명 이상의 소상공인과 자영업 사장님들</b>을 만나왔습니다.<br>
+        현장의 치열함을 이해하고, 그 안에서 살아남고 성장할 수 있도록 <b>비즈니스 전략, 마케팅 전략, 브랜드 전략은 물론</b><br>
+        '가두리 패키지', '설득론', '가격론', '이벤트 전략', '리더십론' 등 실질적이고 실행 중심의 콘텐츠를 제공해 왔습니다.</p>
+        <p>그 결과, <b>높은 고객 만족도</b>, <b>뛰어난 성과 창출</b>, <b>높은 재구매율과 추천율</b>이라는 신뢰를 쌓아왔습니다.</p>
+        <p>이제 중간계는 시대의 흐름에 발맞추어 <b>'중간계 AI 스튜디오'</b>라는 이름으로 다시 도약합니다.<br>
+        앞으로는 <b>인공지능에 최적화된 브랜드 설계와 콘텐츠 제작</b>이 생존과 성장을 가르는 핵심 역량이 됩니다.</p>
+        <p>우리는 브랜드 상세페이지, 쇼츠·릴스, 홈페이지, 챗봇 등 AI 시대에 적합한 툴을 기반으로,<br>
+        더 많이 검색되고, 더 쉽게 연결되며, 더 효율적으로 매출로 이어지는 <b>새로운 전략 파트너십을 제안합니다.</b></p>
+        <p>아이디어와 실행 사이의 간극을 넘어, 이제는 기술과 감각의 간극까지도 메워드립니다.<br>
+        <b>중간계 AI 스튜디오와 함께, 당신의 브랜드 성공 여정을 시작해보세요.</b></p>
+      </div>
+      <button class="more-btn" onclick="toggleSection('history-content', this)">더 보기</button>
+    </div>
+    <div class="container">
+      <h2>CEO, 인사말</h2>
+      <h3>"소상공인과 자영업 사장님들의 성공, 그것이 저의 사명입니다."</h3>
+      <div class="section-content" id="ceo-content">
+        <img src="images/man2.jpg" alt="대표님 사진" class="ceo-img">
+        <p>안녕하십니까,<br>
+        저는 지난 35년간 비즈니스와 마케팅 한길을 걸으며,<br>
+        CJ, 배달의민족, 러쉬, 여기어때, 야나두, 일동제약, 커피에 반하다, 단꿈아이 등 수많은 기업과 브랜드에서 경영 자문과 마케팅 전략을 맡아 왔습니다.<br>
+        특히, 스타트업과 소상공인 사장님들의 빠르고 정확한 의사결정, 현장에 맞는 전략 실행을 지원하며, 현장에서 길어 올린 실전 경험을 쌓아왔습니다.</p>
+        <p>이제 AI 시대를 맞아, 그동안의 경험과 통찰을 바탕으로 '중간계 AI 스튜디오'라는 새로운 서비스를 시작합니다.<br>
+        브랜드 기획부터 상세페이지, 쇼츠·릴스, 웹사이트, 그리고 인공지능 기반 챗봇에 이르기까지, 변화하는 시대에 꼭 필요한 실행 솔루션을 제공합니다.</p>
+        <p>AI 기술과 현장 경험이 결합된 실용적이고 감각적인 지원, 그것이 중간계 AI 스튜디오가 드리는 약속입니다.<br>
+        소상공인과 자영업 사장님들의 더 큰 도전과 성공을 함께하겠습니다.<br>
+        감사합니다.<br>
+        <b>중간계 AI 스튜디오 대표<br>신병철</b></p>
+      </div>
+      <button class="more-btn" onclick="toggleSection('ceo-content', this)">더 보기</button>
+    </div>
+  </div>
+
+  <!-- ===== Footer Section ===== -->
+  <div class="section-bg-beige">
+    <footer>
+      <div style="margin-bottom:20px;">
+        <span style="display:block; margin-bottom:12px;">🏢 중간계AI스튜디오</span>
+        <span style="display:block; margin-bottom:12px;">📞 02-123-1234</span>
+        <span style="display:block; margin-bottom:12px;">✉️ abc@gmail.com</span>
+      </div>
+      <div style="margin-bottom:20px;">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-blogger-b"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // header01.html: 로그인 버튼
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      alert('로그인 버튼을 눌렀어요!');
+    });
+    // hero.html: 캐러셀
+    const slides = document.querySelectorAll('.carousel-slide');
+    const leftBtn = document.querySelector('.arrow.left');
+    const rightBtn = document.querySelector('.arrow.right');
+    let current = 0;
+    let timer;
+    function showSlide(idx) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === idx);
+      });
+      current = idx;
+    }
+    function nextSlide() {
+      showSlide((current + 1) % slides.length);
+    }
+    function prevSlide() {
+      showSlide((current - 1 + slides.length) % slides.length);
+    }
+    rightBtn.addEventListener('click', () => {
+      nextSlide();
+      resetTimer();
+    });
+    leftBtn.addEventListener('click', () => {
+      prevSlide();
+      resetTimer();
+    });
+    function startTimer() {
+      timer = setInterval(nextSlide, 2500);
+    }
+    function resetTimer() {
+      clearInterval(timer);
+      startTimer();
+    }
+    startTimer();
+    // brand_about.html: 더보기 버튼
+    function toggleSection(id, btn) {
+      const section = document.getElementById(id);
+      section.classList.toggle('expanded');
+      if (section.classList.contains('expanded')) {
+        btn.textContent = '접기';
+      } else {
+        btn.textContent = '더 보기';
+      }
+    }
+  </script>
+</body>
+</html> 

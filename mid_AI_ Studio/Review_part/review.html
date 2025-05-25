@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간계 AI 스튜디오 - 고객 후기</title>
+    <!-- 넥슨 Lv2 고딕 웹폰트 적용 (웹폰트는 CSS에서 사용) -->
+    <style>
+        /* 넥슨 Lv2 고딕 웹폰트 불러오기 */
+        @font-face {
+            font-family: 'NEXON Lv2 Gothic';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON%20Lv2%20Gothic.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            /* 전체에 넥슨 폰트 적용 */
+            font-family: 'NEXON Lv2 Gothic', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7; /* 배경색을 밝게 설정 */
+        }
+        .container {
+            /* 컨테이너는 화면의 70%만 사용해요 */
+            width: 70vw;
+            max-width: 900px;
+            margin: 40px auto 0 auto; /* 위쪽에 여백을 주고, 가운데 정렬해요 */
+            background: #fff; /* 컨테이너 배경은 하얀색 */
+            border-radius: 20px; /* 모서리를 둥글게 */
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08); /* 그림자 효과 */
+            padding: 32px 16px;
+        }
+        .review-grid {
+            /* 3x3 그리드로 배치해요 */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .review-box {
+            /* 각 후기 박스 스타일 */
+            background: #f0f4fa;
+            border-radius: 16px;
+            padding: 20px 16px 16px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 180px;
+        }
+        .stars {
+            /* 별 5개를 가로로 보여줘요 */
+            color: #ffd600;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        .review-text {
+            /* 후기 글자 스타일 */
+            color: #222;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .review-author {
+            /* 작성자 이름 스타일 */
+            color: #4a6fa1;
+            font-size: 0.95em;
+            font-weight: bold;
+            margin-top: auto;
+        }
+        /* 반응형: 모바일에서는 한 줄에 1개, 태블릿은 2개 */
+        @media (max-width: 900px) {
+            .container { width: 95vw; }
+            .review-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .container { width: 100vw; border-radius: 0; padding: 8px; }
+            .review-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <!-- 위의 style 태그는 화면을 예쁘고, 반응형으로 만들어줘요 -->
+</head>
+<body>
+    <!-- 전체 내용을 감싸는 컨테이너에요 -->
+    <div class="container">
+        <!-- 3x3 그리드로 9명의 사장님 후기를 보여줘요 -->
+        <div class="review-grid">
+            <!-- 1번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div> <!-- 별 5개 -->
+                <div class="review-text">AI 스튜디오 덕분에 가게 홍보가 훨씬 쉬워졌어요!<br>홈페이지를 직접 만들지 못했는데, 이제는 손쉽게 관리할 수 있습니다.<br>고객 문의도 빠르게 받아서 매출이 늘었어요.</div>
+                <div class="review-author">- 김상훈 (카페 사장님)</div>
+            </div>
+            <!-- 2번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">모바일에서도 잘 보여서 손님들이 예약을 쉽게 해요.<br>디자인이 깔끔해서 가게 이미지가 좋아졌습니다.<br>AI가 도와주니 시간도 절약돼서 정말 만족합니다.</div>
+                <div class="review-author">- 이지은 (미용실 원장님)</div>
+            </div>
+            <!-- 3번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">처음엔 걱정했는데, 설명이 쉬워서 금방 익혔어요.<br>직원들도 쉽게 사용할 수 있어 모두가 편해졌습니다.<br>고객 관리가 체계적으로 바뀌었어요.</div>
+                <div class="review-author">- 박철민 (식당 사장님)</div>
+            </div>
+            <!-- 4번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">홈페이지 덕분에 신규 고객이 많이 늘었어요.<br>AI가 자동으로 예약을 관리해줘서 실수가 줄었습니다.<br>고객 응대가 훨씬 편해졌어요.</div>
+                <div class="review-author">- 송미정 (네일샵 사장님)</div>
+            </div>
+            <!-- 5번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">SNS 연동이 쉬워서 이벤트 홍보가 잘 돼요.<br>홈페이지에서 바로 주문도 받아서 매출이 올랐습니다.<br>AI가 추천해주는 기능도 유용해요.</div>
+                <div class="review-author">- 정우성 (분식집 사장님)</div>
+            </div>
+            <!-- 6번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">고객 후기 관리가 쉬워져서 신뢰도가 높아졌어요.<br>AI가 자동으로 답변을 달아줘서 시간 절약이 됩니다.<br>홈페이지 덕분에 단골이 늘었어요.</div>
+                <div class="review-author">- 한지수 (꽃집 사장님)</div>
+            </div>
+            <!-- 7번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">예약 시스템이 편리해서 손님들이 좋아해요.<br>모바일에서도 빠르게 확인할 수 있어 정말 편리합니다.<br>AI가 일정도 관리해줘서 실수가 없어요.</div>
+                <div class="review-author">- 오세훈 (사진관 사장님)</div>
+            </div>
+            <!-- 8번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">홈페이지 덕분에 가게를 알리는 데 큰 도움이 됐어요.<br>AI가 홍보 문구도 추천해줘서 마케팅이 쉬워졌습니다.<br>고객 반응도 좋아요.</div>
+                <div class="review-author">- 김민아 (베이커리 사장님)</div>
+            </div>
+            <!-- 9번째 사장님 후기 -->
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">AI 스튜디오로 홈페이지를 만들고 나서<br>고객 문의가 2배로 늘었습니다.<br>직접 관리할 수 있어 비용도 아끼고, 만족도가 높아요.</div>
+                <div class="review-author">- 최성호 (PC방 사장님)</div>
+            </div>
+        </div>
+        <!-- 위의 review-grid는 3x3 박스 형태로 9명의 사장님 후기를 보여줘요 -->
+    </div>
+    <!-- container 끝 -->
+</body>
+</html>

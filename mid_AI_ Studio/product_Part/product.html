@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간계 AI 스튜디오 제품</title>
+    <!-- 넥슨 폰트 웹폰트 적용 (Google Fonts CDN) -->
+    <link href="https://fonts.googleapis.com/css2?family=NEXON+Lv1+Gothic+OTF:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 전체 컨테이너 스타일 - 화면 크기에 따라 반응형으로 바뀝니다 */
+        body {
+            font-family: 'NEXON Lv1 Gothic OTF', sans-serif; /* 넥슨 폰트 적용 */
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 900px; /* 최대 너비 설정 */
+            margin: 0 auto; /* 가운데 정렬 */
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 16px;
+        }
+        .shop-image {
+            width: 100%; /* 대표 이미지는 컨테이너 전체 너비 */
+            border-radius: 12px;
+            margin-bottom: 32px;
+            object-fit: cover;
+            aspect-ratio: 16/7; /* 비율 유지 */
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px 24px;
+            margin-bottom: 40px;
+        }
+        .product {
+            background: #f3f6fa;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 18px 14px 20px 14px;
+            box-sizing: border-box;
+            min-width: 0;
+        }
+        .product-image {
+            width: 100%; /* 카드 안에서 가득 차게 만듭니다 */
+            max-width: 240px; /* 최대 너비를 240px로 제한합니다 */
+            aspect-ratio: 1/0.7; /* 가로와 세로가 항상 같게(정사각형) 만듭니다 */
+            border-radius: 10px;
+            object-fit: cover; /* 이미지를 정사각형 영역에 꽉 채웁니다 */
+            margin-bottom: 16px;
+        }
+        .product-desc {
+            width: 100%;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+        .buy-btn {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 16px;
+        }
+        .buy-btn a {
+            background: #fbfcfb;
+            color: #050505;
+            font-weight: normal;
+            padding: 10px 25px;
+            border-radius: 20%;
+            text-decoration: none;
+            font-size: 1.0rem;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(3,199,90,0.08);
+            border: 1px solid #000;
+        }
+        .buy-btn a:hover {
+            background: #adb0ae;
+        }
+        @media (max-width: 700px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .buy-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 전체를 감싸는 컨테이너입니다. -->
+    <div class="container">
+        <!-- 매장의 대표 이미지를 보여줍니다. -->
+        <img src="images/shop1.jpg" alt="매장 대표 이미지" class="shop-image">
+
+        <!-- 4개의 제품(이미지+설명) 영역을 2x2 그리드로 배치합니다. -->
+        <div class="products-grid">
+            <!-- 제품 1: 상세페이지 -->
+            <div class="product">
+                <!-- 제품 이미지를 보여줍니다. -->
+                <img src="images/pd1.jpg" alt="상세페이지 이미지" class="product-image">
+                <!-- 제품 설명입니다. -->
+                <div class="product-desc">
+                    <!-- 초등학생도 이해할 수 있도록 주석을 달았습니다. -->
+                    <strong>AI 상세페이지</strong><br>
+                    AI가 자동으로 상품을 분석해, 검색에 잘 노출되고<br>
+                    추천에 유리한 상세페이지를 쉽고 빠르게 만듭니다.<br>
+                    고객, 약속, 근거, 제품 특징, 구매의 혜택을 전달합니다.
+                </div>
+            </div>
+            <!-- 제품 2: 쇼츠, 릴스 -->
+            <div class="product">
+                <img src="images/pd2.jpg" alt="쇼츠 릴스 이미지" class="product-image">
+                <div class="product-desc">
+                    <strong>AI 쇼츠/릴스</strong><br>
+                    30초, 60초 영상도 AI가 척척!<br>
+                    주목도 높은 쇼츠와 릴스를 빠르게 제작해<br>
+                    SNS에서 인기 있는 영상을 쉽게 만듭니다.
+                </div>
+            </div>
+            <!-- 제품 3: 홈페이지 -->
+            <div class="product">
+                <img src="images/pd3.jpg" alt="홈페이지 이미지" class="product-image">
+                <div class="product-desc">
+                    <strong>AI 홈페이지</strong><br>
+                    AI가 검색에 잘 뜨는 홈페이지를 만들어주고,<br>
+                    브랜드에 맞는 디자인도 자동으로 추천해줍니다.<br>
+                    인공지능 최적화 홈페이지를 간결하게 만듭니다.
+                </div>
+            </div>
+            <!-- 제품 4: AI 챗봇 -->
+            <div class="product">
+                <img src="images/pd4.jpg" alt="AI 챗봇 이미지" class="product-image">
+                <div class="product-desc">
+                    <strong>AI 챗봇</strong><br>
+                    AI가 고객 질문에 똑똑하게 답변!<br>
+                    브랜드 맞춤형 챗봇으로<br>
+                    최고의 고객 경험을 제공합니다.
+                </div>
+            </div>
+        </div>
+        <!-- 구매하기 버튼 영역입니다. -->
+        <div class="buy-btn">
+            <!-- 버튼을 누르면 네이버 스마트스토어로 이동합니다. -->
+            <a href="https://smartstore.naver.com/" target="_blank">구매하기</a>
+        </div>
+    </div>
+</body>
+</html>
